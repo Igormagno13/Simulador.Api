@@ -1,0 +1,26 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: simulador-api:latest
+    container_name: simulador-api
+    ports:
+      - "5267:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:8080"
+      LOCAL_DB_PATH: "/data/local.db"
+      EVENTHUB_CONNECTION_STRING: ""
+      ConnectionStrings__SqlServer: "Server=dbhackathon.database.windows.net,1433;Database=hack;User Id=hack;Password=Password23;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+    volumes:
+      - ./data:/data
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/health/db"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+    restart: unless-stopped
+
