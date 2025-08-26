@@ -8,6 +8,8 @@ A aplicação está containerizada em **Docker**, podendo ser executada
 tanto localmente via `docker-compose` quanto diretamente pela imagem
 publicada no **Docker Hub**.
 
+O Github do projeto é https://github.com/Igormagno13/Simulador.Api
+
 ------------------------------------------------------------------------
 
 ## 🚀 Como rodar o projeto
@@ -17,8 +19,8 @@ publicada no **Docker Hub**.
 Clone o repositório e rode:
 
 ``` bash
-git clone https://github.com/seu_usuario/hackathon.git
-cd hackathon
+git clone https://github.com/Igormagno13/Simulador.Api.git
+cd Simulador.Api
 docker compose up -d --build
 ```
 
